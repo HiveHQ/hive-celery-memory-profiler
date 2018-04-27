@@ -17,6 +17,9 @@ import inspect
 import subprocess
 import logging
 import traceback
+
+from billiard import Process, Pipe
+
 if sys.platform == "win32":
     # any value except signal.CTRL_C_EVENT and signal.CTRL_BREAK_EVENT
     # can be used to kill a process unconditionally in Windows
@@ -25,12 +28,6 @@ else:
     from signal import SIGKILL
 import psutil
 
-
-# TODO: provide alternative when multiprocessing is not available
-try:
-    from multiprocessing import Process, Pipe
-except ImportError:
-    from multiprocessing.dummy import Process, Pipe
 
 try:
     from IPython.core.magic import Magics, line_cell_magic, magics_class
