@@ -54,7 +54,7 @@ setup(
     url='http://pypi.python.org/pypi/memory_profiler',
     py_modules=['memory_profiler'],
     scripts=scripts,
-    install_requires=['psutil'],
+    install_requires=['billiard', 'psutil'],
     classifiers=[_f for _f in CLASSIFIERS.split('\n') if _f],
     license='BSD'
 )
